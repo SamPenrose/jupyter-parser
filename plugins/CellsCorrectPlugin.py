@@ -1,5 +1,3 @@
-from utility import header
-
 class CellsCorrectPlugin(object):
     '''
     are all the cells in the correct order?
