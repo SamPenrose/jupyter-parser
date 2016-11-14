@@ -1,7 +1,7 @@
 import fnmatch
 import os
 import json
-from utility import header
+from .utility import header
 
 # this is more of a parse runner...
 class JupyterParser(object):
