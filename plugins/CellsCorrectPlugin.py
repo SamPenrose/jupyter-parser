@@ -23,6 +23,6 @@ class CellsCorrectPlugin(object):
         correct = sum(self.is_notebook_cell_order_correct.values())
         total = len(self.is_notebook_cell_order_correct)
 
-        print('Files In Correct Order: %s / %s' %(correct, total))
-        for (filename, correct) in self.is_notebook_cell_order_correct.items():
-            print('\t%s : %s' %(correct, filename))
+        print('Notebooks With Cells In Correct Order: %s / %s' %(correct, total))
+        # for (filename, correct) in self.is_notebook_cell_order_correct.items():
+        #     print('\t%s : %s' %(correct, filename))

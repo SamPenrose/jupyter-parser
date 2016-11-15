@@ -29,4 +29,5 @@ jupyter-parser's functionality is currently fairly limited, but the following fu
 
 | command line argument/option | functionality |
 | :------------- | :------------- |
+| `--help` | list arguments/options for tool |
 | `--root` | specify the root directory to parse for files  |

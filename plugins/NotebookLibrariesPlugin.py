@@ -1,5 +1,8 @@
+import click
+
 import re
 from collections import Counter
+import matplotlib.pyplot as plt
 
 class NotebookLibrariesPlugin(object):
     '''
@@ -28,8 +31,30 @@ class NotebookLibrariesPlugin(object):
     def summary(self):
         libraries_across_notebooks = []
         for (filename, libraries) in self.libraries_in_notebook.items():
-            print('\t%s : %s' %(libraries, filename))
+            # print('\t%s : %s' %(libraries, filename))
             libraries_across_notebooks += libraries
 
-        hist = Counter(libraries_across_notebooks)
-        print('Overall Library Usage: %s' %(hist))
+        library_counter = Counter(libraries_across_notebooks)
+        print('Overall Library Usage: %s' %(library_counter))
+        # command line input
+        # wants_histogram = click.prompt('would you like a histogram displayed of the top X libraries',
+        #     type = bool, default = False)
+        #
+        # if not wants_histogram:
+        #     return
+        # num_libraries = click.prompt('how many libraries would you like to display?',
+        #     type = int, default = 5)
+        #
+        # library_count_tuple_list = library_counter.most_common(num_libraries)
+        # libraries = [library for library, _ in library_count_tuple_list]
+        # counts = [count for _, count in library_count_tuple_list]
+        #
+        # x = range(len(libraries))
+        # y = counts
+        #
+        # f = plt.figure()
+        # ax = f.add_axes([0.1, 0.1, 0.8, 0.8])
+        # ax.bar(x, y, align='center')
+        # ax.set_xticks(x)
+        # ax.set_xticklabels(libraries)
+        # f.show()

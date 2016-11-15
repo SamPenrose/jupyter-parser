@@ -5,15 +5,21 @@ class NotebookSparkPlugin(object):
     are all the cells in the correct order?
     '''
 
+    # variables commonly used in spark notebooks
+    # sc must match alone or used with .
+
     spark_variables = [
     'pyspark',
-    'sc',
+    # \b also matches on punctuation
+    '\\bsc\\b',
     'spark',
     'sqlContext',
     'sqlCtx',
     'SQLContext',
     'SparkContext',
     'SparkSession']
+
+    # TODO: cleanup
 
     def __init__(self):
         self.is_spark_notebook = {}
@@ -26,6 +32,8 @@ class NotebookSparkPlugin(object):
             return
 
         self.is_spark_notebook[filename] = False
+
+        # update to with word boundary
         pattern = '|'.join(NotebookSparkPlugin.spark_variables)
 
         cells = notebook['cells']
@@ -34,6 +42,7 @@ class NotebookSparkPlugin(object):
             source = cell['source']
             source = ''.join(source)
             if re.search(pattern, source):
+                import pdb; pdb.set_trace()
                 self.is_spark_notebook[filename] = True
 
     def summary(self):
@@ -41,5 +50,5 @@ class NotebookSparkPlugin(object):
         total_notebooks = len(self.is_spark_notebook)
 
         print('Spark Notebooks: %s / %s' %(spark_notebooks, total_notebooks))
-        for (filename, is_spark) in self.is_spark_notebook.items():
-            print('\t%s : %s' %(filename, is_spark))
+        # for (filename, is_spark) in self.is_spark_notebook.items():
+        #     print('\t%s : %s' %(filename, is_spark))
