@@ -3,6 +3,7 @@ import os
 import json
 from .utility import header
 
+
 # this is more of a parse runner...
 class JupyterParser(object):
     """
@@ -32,7 +33,7 @@ class JupyterParser(object):
         # get all the files in root directory and subdirectories
         filenames_ = []
         for root, dirnames, filenames in os.walk(self.root):
-            for filename in fnmatch.filter(filenames, '*.%s' %(self.extension)):
+            for filename in fnmatch.filter(filenames, '*.%s' % (self.extension)):
                 # could just move logic here?
                 filenames_.append(os.path.join(root, filename))
 

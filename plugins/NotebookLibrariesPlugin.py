@@ -1,8 +1,9 @@
-import click
+# import click
 
 import re
 from collections import Counter
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
+
 
 class NotebookLibrariesPlugin(object):
     '''
@@ -35,7 +36,7 @@ class NotebookLibrariesPlugin(object):
             libraries_across_notebooks += libraries
 
         library_counter = Counter(libraries_across_notebooks)
-        print('Overall Library Usage: %s' %(library_counter))
+        print('Overall Library Usage: %s' % (library_counter))
         # command line input
         # wants_histogram = click.prompt('would you like a histogram displayed of the top X libraries',
         #     type = bool, default = False)

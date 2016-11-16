@@ -1,5 +1,6 @@
 import re
 
+
 class NotebookSparkPlugin(object):
     '''
     is the notebook using a spark context, etc.
@@ -9,21 +10,20 @@ class NotebookSparkPlugin(object):
     # sc must match alone or used with .
 
     spark_variables = [
-    'pyspark',
-    # \b also matches on punctuation
-    '\\bsc\\b',
-    'spark',
-    'sqlContext',
-    'sqlCtx',
-    'SQLContext',
-    'SparkContext',
-    'SparkSession']
+        'pyspark',
+        # \b also matches on punctuation
+        '\\bsc\\b',
+        'spark',
+        'sqlContext',
+        'sqlCtx',
+        'SQLContext',
+        'SparkContext',
+        'SparkSession'
+    ]
 
     # TODO: cleanup
-
     def __init__(self):
         self.is_spark_notebook = {}
-
 
     def parse_notebook(self, filename, notebook):
         if 'cells' not in notebook:
@@ -42,13 +42,12 @@ class NotebookSparkPlugin(object):
             source = cell['source']
             source = ''.join(source)
             if re.search(pattern, source):
-                import pdb; pdb.set_trace()
                 self.is_spark_notebook[filename] = True
 
     def summary(self):
         spark_notebooks = sum(self.is_spark_notebook.values())
         total_notebooks = len(self.is_spark_notebook)
 
-        print('Spark Notebooks: %s / %s' %(spark_notebooks, total_notebooks))
+        print('Spark Notebooks: %s / %s' % (spark_notebooks, total_notebooks))
         # for (filename, is_spark) in self.is_spark_notebook.items():
         #     print('\t%s : %s' %(filename, is_spark))
