@@ -5,13 +5,31 @@ from .utility import header
 
 # this is more of a parse runner...
 class JupyterParser(object):
+    """
+    parser class that defines hooks for plugins
+    to parse jupyter notebook
+    """
+
     def __init__(self, root, plugins):
+        """initialize parser instance
+
+        Arguments
+        ---------
+        root : string
+            root directory for finding ipython notebook files
+
+        plugins : [array-like] of plugins instances
+            plugin instances must support the following methods or pass
+            - parse_notebook : passes notebook to plugin
+            - summary : summary statistics of plugin presented
+        """
         self.root = root
         self.extension = 'ipynb'
         self.plugins = plugins
 
     def parse(self):
-        # get all the files passed in
+        """after initialization, parse noteobooks"""
+        # get all the files in root directory and subdirectories
         filenames_ = []
         for root, dirnames, filenames in os.walk(self.root):
             for filename in fnmatch.filter(filenames, '*.%s' %(self.extension)):

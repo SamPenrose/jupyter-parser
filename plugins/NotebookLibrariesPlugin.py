@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 
 class NotebookLibrariesPlugin(object):
     '''
-    are all the cells in the correct order?
+    what libraries are found in the notebooks?
     '''
     def __init__(self):
         self.libraries_in_notebook = {}

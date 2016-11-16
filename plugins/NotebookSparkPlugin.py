@@ -2,7 +2,7 @@ import re
 
 class NotebookSparkPlugin(object):
     '''
-    are all the cells in the correct order?
+    is the notebook using a spark context, etc.
     '''
 
     # variables commonly used in spark notebooks
