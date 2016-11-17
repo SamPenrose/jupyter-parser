@@ -1,5 +1,8 @@
 # jupyter-parser
 
+[![Build Status](https://travis-ci.org/cameres/jupyter-parser.svg?branch=master)](https://travis-ci.org/cameres/jupyter-parser)
+[![codecov](https://codecov.io/gh/cameres/jupyter-parser/branch/master/graph/badge.svg)](https://codecov.io/gh/cameres/jupyter-parser)
+
 jupyter-parser is a jupyter notebook parser that attempts to gather information
 about the varying ways in which a notebook may be used. jupyter-parser has been tested on
 python 2.7.12 and python 3.5.2. The current plugins written
